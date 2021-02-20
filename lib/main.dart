@@ -1,3 +1,5 @@
+import 'package:day2nd_flutter/pages/home_page.dart';
+import 'package:day2nd_flutter/pages/login_page.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -9,15 +11,20 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    int day = 30;
-    String name = "Days CodePur";
     return MaterialApp(
-        home: Material(
-      child: Center(
-        child: Container(
-          child: Text("Welcmone to $day $name"),
-        ),
-      ),
-    ));
+      debugShowCheckedModeBanner: false,
+     
+      themeMode: ThemeMode.light,
+      //appBar color
+      theme: ThemeData(primarySwatch: Colors.deepPurple),
+      darkTheme: ThemeData(brightness: Brightness.dark),
+      initialRoute: "/home", //initally opening home
+      //routes
+      routes: {
+        "/": (context) => LoginPage(),
+        "/home":(context) => HomePage(),
+        "/login" : (context) => LoginPage(),
+      },
+    );
   }
 }
